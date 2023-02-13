@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools {
+        terraform 'terraform'
+}
+
 
     environment {
         PATH=sh(script:"echo $PATH:/usr/local/bin", returnStdout:true).trim()
@@ -16,9 +20,8 @@ pipeline {
         stage('Create Infrastructure for the App') {
             steps {
                 echo 'Creating Infrastructure for the App on AWS Cloud'
-                sh 'cd todo-app'
-                sh 'sudo terraform init'
-                sh 'sudo terraform apply --auto-approve'
+                sh 'terraform init'
+                sh 'terraform apply --auto-approve'
             }
         }
 
@@ -121,7 +124,6 @@ pipeline {
     //             sh 'terraform destroy --auto-approve'
     //     }
     // }
+    }
 
-
- }
 }
