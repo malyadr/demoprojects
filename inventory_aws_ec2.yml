@@ -7,4 +7,4 @@ keyed_groups:
   - key: tags.Name
   - key: tags.environment
 compose:
-  ansible_host: public_ip_address
+  ansible_host: 13.59.1.190
