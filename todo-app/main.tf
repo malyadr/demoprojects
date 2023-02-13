@@ -14,7 +14,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-2"
 }
 
 variable "tags" {
@@ -23,15 +23,15 @@ variable "tags" {
 
 
 variable "user" {
-  default = "ayse"
+  default = "Demoprojects"
   
 }
 
 resource "aws_instance" "managed_nodes" {
-  ami = "ami-0f095f89ae15be883"
+  ami = "ami-0cc09fd08815fa77b"
   count = 3
   instance_type = "t2.micro"
-  key_name = "firstkey"  # you need to put your pemkey in here
+  key_name = "mykeypair"  # you need to put your pemkey in here
   vpc_security_group_ids = [aws_security_group.tf-sec-gr.id]
   iam_instance_profile = "jenkins-project-profile-${var.user}"
   tags = {

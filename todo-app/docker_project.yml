@@ -2,8 +2,8 @@
   hosts: _development_1
   become: true
   vars:
-    aws_region: us-east-1
-    ecr_registry: XXXXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com   #change with your aws account id number
+    aws_region: us-east-2
+    ecr_registry: 365299945243.dkr.ecr.us-east-1.amazonaws.com   #change with your aws account id number
   tasks:
     - name: update all packages
       yum:
@@ -92,7 +92,7 @@
   vars:
     postgre_container: /home/ec2-user/postgresql
     container_name: ayse_postgre
-    image_name: XXXXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/ayse-repo/ayse-todo-app:postgr #change with your aws account id number
+    image_name: 365299945243.dkr.ecr.us-east-1.amazonaws.com/ayse-repo/ayse-todo-app:postgr #change with your aws account id number
   tasks:
     - name: remove {{ container_name }} container and {{ image_name }} if exists
       shell: "docker ps -q --filter 'name={{ container_name }}' && docker stop {{ container_name }} && docker rm -fv {{ container_name }} && docker image rm -f {{ image_name }} || echo 'Not Found'"
@@ -115,7 +115,7 @@
   vars:
     container_path: /home/ec2-user/nodejs
     container_name: ayse_nodejs
-    image_name: XXXXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/ayse-repo/ayse-todo-app:nodejs  #change with your aws account id number
+    image_name: 365299945243.dkr.ecr.us-east-1.amazonaws.com/ayse-repo/ayse-todo-app:nodejs  #change with your aws account id number
   tasks:
     - name: remove {{ container_name }} container and {{ image_name }} if exists
       shell: "docker ps -q --filter 'name={{ container_name }}' && docker stop {{ container_name }} && docker rm -fv {{ container_name }} && docker image rm -f {{ image_name }} || echo 'Not Found'"
@@ -134,7 +134,7 @@
   vars:
     container_path: /home/ec2-user/react
     container_name: ayse_react
-    image_name: XXXXXXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/ayse-repo/ayse-todo-app:react   #change with your aws account id number
+    image_name: 365299945243.dkr.ecr.us-east-1.amazonaws.com/ayse-repo/ayse-todo-app:react   #change with your aws account id number
   tasks:
     - name: remove {{ container_name }} container and {{ image_name }} image if exists
       shell: "docker ps -q --filter 'name={{ container_name }}' && docker stop {{ container_name }} && docker rm -fv {{ container_name }} && docker image rm -f {{ image_name }} || echo 'Not Found'"
