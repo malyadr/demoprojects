@@ -6,9 +6,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "ayse-project208-todo-app" #you need to create your s3 bucket with the same name as here before you run this terraform file!
+    bucket = "ayse-project208-todo-app-1" #you need to create your s3 bucket with the same name as here before you run this terraform file!
     key = "backend/tf-backend-jenkins.tfstate"
-    region = "us-east-1"
+    region = "us-east-2"
     
   }
 }
